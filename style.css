@@ -4,14 +4,28 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: "myFont";
+    src: url('images/font/outward-round-webfont.woff;')
+  }
+  @keyframes bounce {
+    0% {
+      tranform: translate(0, 4px);
+    }
+    50% {
+      transform: translate(0, 20px);
+    }
+  } 
 @keyframes intro-box {
     0%{
-        background-color: rgb(23, 27, 23);
+        background-color: rgb(240, 240, 243);
+       
       
     }
 
     100%{
         background-color: transparent;
+     
 
     }
 }
@@ -31,28 +45,34 @@
         width: 500px;
         height: 500px;
     
+    
     }
 
     100%{
         width:100%;
         height: 100%;
         border-color: transparent;
+        opacity: 0;
     }
 
 }
+
+
 body{
- background: rgb(8, 8, 8);
+ background-color: black;
  font-family: 'Montserrat', sans-serif;
  overflow-x: hidden;
- position: relative;
+ position: absolute;
 
  
 
 }
+/* 
+main {
+    position: absolute;
+} */
 
-main{
-    position: fixe;
-}
+
 
 #logo{
     color: rgb(255, 19, 19);
@@ -115,6 +135,7 @@ main{
     font-size: 2rem;
     overflow: hidden;
     flex-basis: auto;
+    animation: bounce 9s infinite;
 
 }
 
@@ -138,7 +159,9 @@ main{
 }
 
 .hero-img:hover{
-  transform: scale(2);
+  transform: scale(1);
+  border-radius: 100%;
+ 
 }
 
 .hero-img img {
@@ -168,20 +191,22 @@ main{
 
 .hero-desc p {
     padding: 3rem 0rem;
-    font-size: 1.5rem;
-    color: rgb(57, 25, 202);
+    font-size: 2rem;
+    color: white
 }
 
 .explore {
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
     background: none;
     border: none;
-    color: rgb(49, 52, 218);
-    border: 1px solid white;
-    font-size: 1rem;
+    color: red;
+    border: 1px solid rgb(68, 2, 248);
+    font-size: 1.5rem;
     text-decoration: none;
-    align-self: flex-start;
+    align-self: center;
     cursor: pointer;
+
+
 }
 
 .nav-bar{
@@ -190,19 +215,64 @@ main{
     left: 0;
     width: 80%;
     height: 80%;
-    background: rgb(255, 99, 99);
+    background-image: linear-gradient(120deg,#ffffff,#ffffff);
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    align-items:flex-start;
     opacity: 1;
-    clip-path: circle(200px at 40% -30%);
+    clip-path: circle(100px at 40% -30%);
     border-radius: 100%;
    -webkit-clip-path:circle(50px at 80% -30%);
+   overflow: hidden;
+   align-content: center;
 }
+
+
+.nav-bar p{
+   position: relative;
+    top: 2rem;
+    margin: 8rem 1rem 7rem 2rem;
+    max-width:900px;
+    font-size: 1.2rem;
+    font-weight: 100;
+    font-style: oblique;
+    letter-spacing: 0.3rem;
+    color: blue;
+   align-items: center;
+   
+   
+}
+
+.link {
+    position: relative;
+    max-width:75px;
+    display: block;
+    padding: 0.2rem;
+    margin: 0.5rem;
+    color: red;
+    top: 10rem;
+    border: 1px solid blue;
+    transform: rotate(30deg);
+    font-weight: 600;
+    text-decoration: none;
+    left: 0;
+    z-index: 1;
+   
+
+}
+
+
 
 
 .burger {
     cursor: pointer;
+    position: fixed;
+    top: -3rem;
+    right: 2rem;
+    max-width: 680px;
+    color: blue;
+  
   
 }
 
@@ -221,8 +291,10 @@ button:hover{
 }
 
 
-#contact{
+.contact{
+ 
  min-height: 100vh;
+ min-width: 80vh;
  background:linear-gradient(rgba(226, 109, 109, 0.5), transparent) url("images/pawel-czerwinski-ISgDx2aOAB8-unsplash\ \(1\).jpg");
  background-size: cover;
  background-repeat: no-repeat;
@@ -230,70 +302,90 @@ button:hover{
  align-items: center;
  mix-blend-mode: difference;
  justify-content: center;
+ opacity: 0.9;
  
 }
 
 
 .form-wrapper{
-    background: rgba(233, 36, 22, 0.8) ;
-    width: 40%;
-    color: white;
-    border-radius: 20px;
+    background: #fff;
+    min-width: 60vh;
+    min-height: 60vh;
+    border-radius: 10px;
+    max-width: 478.5px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5px;
+    padding-bottom: 0px;
+    left: 0;
+    right: 0;
+    position: absolute;
+    border-top: 10px solid #ca0606;
+    z-index: 2;
+
+    animation: bounce 3s infinite;
 }
 
-.form-head{
-    text-align: center;
-    padding: 4rem;
-}
 
 .name-form,
 .email-form,
 .msg-form{
-    padding: 1rem 10rem;
-    
+  padding: 3em;
+  justify-content: center;
+  align-content: center;
+  display: block;
+  margin: 30px auto;
+  min-width: 300px;
+  padding: 10px;
+  border-radius: 2px;
+  border: none;
+  transition: all 0.5s ease 0s;
   
 }
-
-
 .text{
-    padding: 1rem 0rem;
     position: relative;
-
-}
-
-.label-name{
-    position: absolute;
-    
-
+    left:-1.5rem;
+    /* background-color: blue; */
 }
 
 
+.form-wrapper h2{
+    position: relative;
+    left: 8rem;
+}
 .form-wrapper label {
-    margin: 0rem 0rem;
+    margin: 0rem 4rem;
 }
 
 .form-wrapper button{
     width: 100%;
     padding: 2rem;
     margin-top: 8rem;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+
     
 }
 
 .form-wrapper input{
     padding: 1rem 1rem 1rem;
 }
-.nav-links{
-    font-size: 2rem;
-    flex-basis: 20rem;
-    text-align: center;
-    z-index: 10;
+.submit {
+    width: 300px;
+    color: white;
+    background-color:#ca0606;
+    font-size: 20px;
+  }
+
+
+
+.nav-links li{
+    display: block;
+    width: 50px;
+    background-color: blue;
+    z-index: inherit;
+
 }
 
-.nav-links h3{
-    padding: 3rem 0rem;
-}
+
 
 .contact{
     flex-basis: 30rem;
@@ -356,7 +448,7 @@ button:hover{
 .cursor.explore-active{
     background: blueviolet;
     transform: scale(3);
-    background-image: url('images/File_000\ \(2\).jpeg');
+   
 }
 
 .title{
@@ -373,13 +465,20 @@ button:hover{
 }
 
 .t-swipe1{
-    background: #92cbda;
+    background: #840ebb;
+    mix-blend-mode: difference;
+    opacity: 0.5;
+
 }
 .t-swipe2{
-    background: #dcb5eb;
+    background: #4ada3c;
+    mix-blend-mode: difference;
+    opacity: 0.4;
 }
 .t-swipe3{
-    background: #d488ac;
+    background: #e29c18;
+    mix-blend-mode: difference;
+    opacity: 0.6;
 }
 
 body.hide{
@@ -483,7 +582,7 @@ div.intros {
     
 }
 
- /* div.intro {
+  div.intro {
     position: fixed;
     top: 0;
     left:0;
@@ -498,8 +597,8 @@ div.intros {
     pointer-events: none;
     animation: intro-box 1s 4s both
 
-}   */
- /* div.intro div.box {
+}   
+  div.intro div.box {
     width: 260px;
     height: 200px;
     border: 1px solid #df0b0b;
@@ -509,13 +608,13 @@ div.intros {
     padding: 24px;
     animation: grow-box 3s 2s both;
     position: absolute
-} */
+} 
 
- /* div.intro div.column{
+  div.intro div.column{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-} */
+} 
 
 
 
@@ -561,7 +660,7 @@ div.intros {
 
 }
 
-.broad{
+/* .broad{
 position:fixed;
 background-color: blue;
 top: 0;
@@ -570,7 +669,134 @@ width: 100%;
 height: 100%;
 
 
+ */
 
+/* } */
+
+@media screen and (max-width: 1024px) {
+    main {
+      width: 100%;
+      margin: 0;
+    }
+    .slide {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+    .hero-desc {
+      padding: 0;
+    }
+    .hero-img {
+      padding-top: 4rem;
+    }
+    .hero-desc h2 {
+      font-size: 1.6rem;
+      padding: 1rem 0rem;
+    }
+    .hero-desc p {
+      padding: 2rem 1rem;
+      font-size: 1rem;
+      line-height: 1.5rem;
+      text-align: center;
+    }
+
+  
+    .explore {
+      width: 100%;
+      margin: auto;
+    }
+    .detail-slide {
+      width: 100%;
+      text-align: center;
+    }
+    .fashion-text p {
+      margin-bottom: 5rem;
+      padding: 0;
+    }
+    .fastion-text h1 {
+      margin: 2rem 0rem;
+    }
+    .fashion-nr {
+      font-size: 8rem;
+    }
+
+ .nav-bar{
+    display: block;
+    margin-left: 4em;
+    
+ }
+
+
+ .nav-bar p{
+     margin: 5em;
+     font-size: 1.3rem;
+     
+ }
+
+
+
+
+ 
+ .burger{
+  
+ position: fixed;
+ top: -3rem;
+ right: 3rem;
+ max-width: 680px;
+ 
+ }
+    
+
+    
+
+    
+  
+   
+
+    
+  }
+
+  @media (max-width: 2000px) and (min-width: 20px) {
+  .link-parent{
+      position: fixed;
+      display: block;
+      top:-7rem;
+      right: -0.4rem;
+     width:100%
+  
+  }
+
+  .link{
+     
+   padding: 0.2rem;
+   margin: 0.5rem;
+   color: red;
+   border: 1px solid blue;
+   transform: rotate(30deg);
+   font-size: 1rem;
+   font-weight: 600;
+   text-decoration: none;
+   overflow: hidden;
+   left: -1rem;
+   z-index: 1;
 
 }
+
+
+/* .tech-images{
+    position: absolute;
+    display:flex;
+    top: -30rem;
+    left: 50rem
+} */
+
+/* .tech-images img{
+    width: 100px;
+    height: 90px; 
+    overflow: hidden;
+    
+} */
+
+}
+
 

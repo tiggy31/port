@@ -22,7 +22,7 @@ function animateScene() {
           slideT1.fromTo(revealImg,{y: "50%"}, {y:"100%"} )
           slideT1.fromTo(img,{scale:2}, {scale:1},"-=1")
           slideT1.fromTo(revealText,{x:"0%"}, {x:"100%"},'-=0.7')
-          slideT1.fromTo(nav,{y:"50%"}, {y:"0%"},'-=0.5')
+          slideT1.fromTo(nav,{y:"50%"}, {y:"40%"},'-=0.5')
      
 
          //creatingScene
@@ -33,10 +33,6 @@ function animateScene() {
 
        }) 
          .setTween(slideT1)
-         .addIndicators({
-               colorStart:'black', 
-               colorTrigger: "black",
-               name: "slide"})
           .addTo(controller)
 
           //newanimation
@@ -54,10 +50,7 @@ function animateScene() {
             triggerHook:0,
            
           })
-          .addIndicators({colorStart: "blue",
-                          colorTrigger: "blue", 
-                          name:"page",
-                          indent:200})
+    
           .setPin(slide)               
           .setTween(pageT1)
           .addTo(controller)
@@ -70,25 +63,26 @@ const mouseTxt = mouse.querySelector('span')
 const burger = document.querySelector(".burger")
 const about = document.querySelector(".broad")
 
-function myinfo(e){
-    e.preventDefault()
-    const item = e.target
-    if(!e.target.classList.contains('active')) {
-        e.target.classList.add('active')
-        gsap.to(".overall-nav", 0.5, {clipPath: 'circle(2500px at 100% -30%)'})
-        item.innerText="Go Back"
-        document.body.classList.add("hide")
-     } else {
+// function myinfo(e){
+//     e.preventDefault()
+//     const item = e.target
+//     if(!e.target.classList.contains('active')) {
+//         e.target.classList.add('active')
+//         gsap.to(".overall-nav", 0.5, {clipPath: 'circle(2000px at 100% 30%)'})
+//         item.innerText="Go Back"
+//         item.createElement()
+//         document.body.classList.add("hide")
+//      } else {
 
-        e.target.classList.remove('active')
-        item.innerText="About Me"
-        gsap.to(".overall-nav", 1, {clipPath: 'circle(50px at 100% -10%)'})
-        document.body.classList.remove("hide")
+//         e.target.classList.remove('active')
+//         item.innerText="About Me"
+//         gsap.to(".overall-nav", 1, {clipPath: 'circle(50px at 100% -10%)'})
+//         document.body.classList.remove("hide")
 
-     }
+//      }
         
 
-}
+// }
 function cursor(e){
        mouse.style.top = e.pageY + 'px'
        mouse.style.left = e.pageX + 'px'
@@ -118,11 +112,11 @@ function activeCursor(e){
 function navToggle(e){
     if(!e.target.classList.contains('active')) {
         e.target.classList.add('active')
-        gsap.to(".line1", 0.5, {rotate: "45", y:5,background: "black"})
-        gsap.to(".line2", 0.5, {rotate: "-45", y:-5,background: "black"})
-        gsap.to(".nav-bar", 1, {clipPath: 'circle(1000px at 80% 10%)'})
+        gsap.to(".line1", 0.5, {rotate: "45", y:5,background: "blue"})
+        gsap.to(".line2", 0.5, {rotate: "-45", y:-5,background: "blue"})
+        gsap.to(".nav-bar", 1, {clipPath: 'circle(1000px at 80% 70%)'})
         gsap.to("#logo",1, {color: "black", y:2})
-        document.body.classList.add("hide")
+        // document.body.classList.add("hide")
      } else {
 
         e.target.classList.remove('active')
@@ -142,5 +136,5 @@ function navToggle(e){
 burger.addEventListener('click', navToggle)
 window.addEventListener('mousemove', cursor)
 window.addEventListener('mouseover', activeCursor)
-about.addEventListener("click", myinfo)
+// about.addEventListener("click", myinfo)
 animateScene()
